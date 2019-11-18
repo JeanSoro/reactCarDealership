@@ -3,7 +3,7 @@ import room2 from "./images/details-2.jpeg";
 import room3 from "./images/details-3.jpeg";
 import room4 from "./images/details-4.jpeg";
 import img1 from "./images/room-1.jpeg";
-import img2 from "./images/room-2.jpeg";
+import img2 from "./images/car-2.jpg";
 import img3 from "./images/room-3.jpeg";
 import img4 from "./images/room-4.jpeg";
 import img5 from "./images/room-5.jpeg";

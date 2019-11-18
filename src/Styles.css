@@ -10,7 +10,7 @@
   --offWhite: #f7f7f7;
   --mainBlack: #222;
   --mainGrey: #ececec;
-  --darkGrey: #cfcfcf;
+  --darkGrey: #dcebfd;
   --mainTransition: all 0.3s linear;
   --mainSpacing: 3px;
   --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
@@ -250,8 +250,8 @@ h6 {
 /*------------------------------- Title --------------------------------*/
 .section-title {
   text-align: center;
-  margin-bottom: 4rem;
-  margin-top: 4rem;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
 }
 
 .section-title h4 {
@@ -298,6 +298,7 @@ h6 {
 
 .services h6 {
   letter-spacing: var(--mainSpacing);
+  text-transform: capitalize;
 }
 
 .services p {

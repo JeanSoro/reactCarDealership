@@ -33,18 +33,18 @@ export default class Services extends Component {
     ]
   }
 
-
-
   render() {
 
     let { services } = this.state;
 
     const servicesList = services.map((service, index) => {
+      let { icon, title, info } = service;
+
       return (
         <article key={index} className="service">
-          <span>{service.icon}</span>
-          <h6>{service.title}</h6>
-          <p>{service.info}</p>
+          <span>{icon}</span>
+          <h6>{title}</h6>
+          <p>{info}</p>
         </article>
       )
     });

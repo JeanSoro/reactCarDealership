@@ -3,6 +3,7 @@ import HeroBackground from './HeroBackground';
 import Banner from './Banner'
 import { Link } from 'react-router-dom';
 import Services from './Services'
+import FeaturedCars from './FeaturedCars'
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
         </Banner>
       </HeroBackground>
       <Services />
+      <FeaturedCars />
     </>
   )
 }
