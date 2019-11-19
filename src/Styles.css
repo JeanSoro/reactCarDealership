@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -22,7 +24,8 @@ body {
   padding-top: 66px;
   color: var(--mainBlack);
   background: var(--mainWhite);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  font-family: 'Open Sans', sans-serif;
   line-height: 1.4;
 }
 
@@ -322,11 +325,11 @@ h6 {
 /*end of services */
 /* featured rooms */
 
-.featured-rooms {
+.featured-cars {
   padding: 5rem 0;
 }
 
-.featured-rooms-center {
+.featured-cars-center {
   width: 80vw;
   margin: 0 auto;
   display: grid;
@@ -336,14 +339,14 @@ h6 {
 }
 
 @media screen and (min-width: 776px) {
-  .featured-rooms-center {
+  .featured-cars-center {
     width: 90vw;
     grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
   }
 }
 
 @media screen and (min-width: 992px) {
-  .featured-rooms-center {
+  .featured-cars-center {
     width: 95vw;
     max-width: 1170px;
   }
@@ -351,12 +354,12 @@ h6 {
 
 /* end pf featured rooms */
 /* room */
-.room {
+.car {
   box-shadow: var(--lightShadow);
   transition: var(--mainTransition);
 }
 
-.room:hover {
+.car:hover {
   box-shadow: var(--darkShadow);
 }
 
@@ -414,7 +417,7 @@ h6 {
   transform: translate(-50%, -50%) scale(1);
 }
 
-.room-info {
+.car-info {
   background: var(--darkGrey);
   text-transform: capitalize;
   padding: 0.5rem 0;
