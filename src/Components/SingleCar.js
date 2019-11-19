@@ -4,6 +4,7 @@ import Hero from './HeroBackground'
 import Banner from './Banner'
 import { Link } from 'react-router-dom';
 import { CarContext } from '../context';
+import StyledHeroBackground from './StyledHeroBackground';
 
 export default class SingleCar extends Component {
 
@@ -43,13 +44,15 @@ export default class SingleCar extends Component {
     const { name, description, capacity, size, price, extras, breakfast, pets, images } = car;
     // console.log(car)
     return (
-      <Hero hero='carsHero'>
+      <StyledHeroBackground img={images[0] || this.state.defaultBcg}>
         <Banner title={`${name} car`}>
           <Link to='/cars' className="btn-primary">
             Back to cars
           </Link>
         </Banner>
-      </Hero>
+      </StyledHeroBackground>
     )
   }
 }
+
+
