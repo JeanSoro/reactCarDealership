@@ -73,6 +73,7 @@ h6 {
   padding: 0.4rem 0.9rem;
   border: 3px solid var(--primaryColor);
   border-radius: 50px;
+
   transition: var(--mainTransition);
   text-transform: uppercase;
   cursor: pointer;
