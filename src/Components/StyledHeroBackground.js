@@ -13,3 +13,4 @@ const StyledHeroBackground = styled.header`
 `
 
 export default StyledHeroBackground;
+
