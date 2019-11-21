@@ -479,12 +479,12 @@ h6 {
   font-weight: 300;
 }
 
-.room-extras {
+.car-extras {
   width: 80vw;
   margin: 0 auto 3rem auto;
 }
 
-.room-extras h6 {
+.car-extras h6 {
   text-transform: capitalize;
   letter-spacing: var(--mainSpacing);
 }
@@ -519,11 +519,11 @@ h6 {
 
 /* end of single room*/
 /* roomlist */
-.roomslist {
+.carslist {
   padding: 5rem 0;
 }
 
-.roomslist-center {
+.carslist-center {
   width: 80vw;
   margin: 0 auto;
   display: grid;
@@ -533,13 +533,13 @@ h6 {
 }
 
 @media screen and (min-width: 776px) {
-  .roomslist-center {
+  .carslist-center {
     width: 90vw;
   }
 }
 
 @media screen and (min-width: 992px) {
-  .roomslist-center {
+  .carslist-center {
     width: 95vw;
     max-width: 1170px;
   }

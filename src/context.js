@@ -60,5 +60,13 @@ class CarProvider extends Component {
 
 const CarConsumer = CarContext.Consumer;
 
+export function withCarConsumer(Component) {
+  return function ConsumerWrapper(props) {
+    return <CarConsumer>
+      {value => <Component {...props} context={value} />}
+    </CarConsumer>
+  }
+}
+
 export { CarProvider, CarConsumer, CarContext }
 
