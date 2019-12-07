@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import items from './data';
+// import items from './data';
+import Client from './Contentful';
+
 
 const CarContext = React.createContext();
 
@@ -15,33 +17,65 @@ class CarProvider extends Component {
     carMake: 'all',
     price: 0,
     minPrice: 0,
+    maxPrice: 0,
     minSize: 0,
     maxSize: 0,
     breakfast: false,
     pets: false
   };
 
-  // Get data
+  // Get API data
+  getAPIData = async () => {
+    try {
+      let response = await Client.getEntries({
+        content_type: "carDealershipCars",
+        order: "sys.createdAt"
+      });
+
+      let cars = this.formatData(response.items);
+      // return featured cars from array
+      let featuredCars = cars.filter(car => car.featured === true);
+      //calculate default maximum price for each item in Array
+      let maxPrice = Math.max(...cars.map(car => car.price));
+      //calculate default maximum size for each item in Array
+      let maxSize = Math.max(...cars.map(car => car.size));
+
+      this.setState({
+        cars,
+        featuredCars,
+        sortedCars: cars,
+        loading: false,
+        price: maxPrice,
+        maxPrice,
+        maxSize
+      });
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  // Get local data
   componentDidMount() {
-    let cars = this.formatData(items);
+    this.getAPIData()
+    // let cars = this.formatData(items);
 
-    // return featured cars from array
-    let featuredCars = cars.filter(car => car.featured === true);
+    // // return featured cars from array
+    // let featuredCars = cars.filter(car => car.featured === true);
 
-    //calculate default maximum price for each item in Array
-    let maxPrice = Math.max(...cars.map(car => car.price));
-    //calculate default maximum size for each item in Array
-    let maxSize = Math.max(...cars.map(car => car.size));
+    // //calculate default maximum price for each item in Array
+    // let maxPrice = Math.max(...cars.map(car => car.price));
+    // //calculate default maximum size for each item in Array
+    // let maxSize = Math.max(...cars.map(car => car.size));
 
-    this.setState({
-      cars,
-      featuredCars,
-      sortedCars: cars,
-      loading: false,
-      price: maxPrice,
-      maxPrice,
-      maxSize
-    });
+    // this.setState({
+    //   cars,
+    //   featuredCars,
+    //   sortedCars: cars,
+    //   loading: false,
+    //   price: maxPrice,
+    //   maxPrice,
+    //   maxSize
+    // });
   }
 
   // Flattening data.js Array
@@ -71,7 +105,7 @@ class CarProvider extends Component {
   handleChange = e => {
 
     const target = e.target;
-    const value = e.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = e.target.name;
 
     this.setState({
@@ -83,21 +117,45 @@ class CarProvider extends Component {
 
   filterCars = () => {
     let {
-      cars, type, carMake, minSize, maxSize, breakfast, pets
+      cars, price, type, carMake, minSize, maxSize, breakfast, pets
     } = this.state
-
     //All cars
     let tempCars = [...cars];
+
+    // -----------------------------------------------
 
     // filter by type
     if (type !== 'all') {
       tempCars = tempCars.filter(car => car.type === type)
     }
 
+    // ---------------------------------------------------------
+
     //Filter by manufacturers
     if (carMake !== 'all') {
       tempCars = tempCars.filter(car => car.carMake === carMake)
     }
+
+    // ---------------------------------------------------------
+    //Filter by price
+    tempCars = tempCars.filter(car => car.price <= price);
+
+    // ---------------------------------------------------------
+
+    // Filter by size ()
+    tempCars = tempCars.filter(car => car.size >= minSize && car.size <= maxSize)
+
+    // ---------------------------------------------------------
+
+    if (breakfast) {
+      tempCars = tempCars.filter(car => car.breakfast === true)
+    }
+
+    if (pets) {
+      tempCars = tempCars.filter(car => car.pets === true)
+    }
+
+    //alternate state
     this.setState({
       sortedCars: tempCars
     })

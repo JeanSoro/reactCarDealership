@@ -40,14 +40,14 @@ export default class SingleCar extends Component {
         </div>
       )
     }
-    const { name, description, capacity, size, price, extras, breakfast, pets, images } = car;
+    const { name, description, manufacturer, fuelTankCapacity, price, extras, gps, sportsPackage, images } = car;
     const [mainImg, ...defaultImg] = images;
 
     // console.log(car)
     return (
       <>
         <StyledHeroBackground img={mainImg || this.state.defaultBcg}>
-          <Banner title={`${name} car`}>
+          <Banner title={`${name}`}>
             <Link to='/cars' className="btn-primary">
               Back to cars
           </Link>
@@ -68,14 +68,14 @@ export default class SingleCar extends Component {
             <article className="info">
               <h3>info</h3>
               <h6>price: ${price}</h6>
-              <h6>size: {size} SQFT</h6>
+              <h6>Fuel Tank: {fuelTankCapacity} L</h6>
               <h6>
-                capacity: {capacity > 1 ? `${capacity} people` : `${capacity} person`}
+                Manufacturer: {manufacturer}
               </h6>
               <h6>
-                {pets ? "push to start engine" : "no push to start"}
+                Sport Package: {sportsPackage ? "high performance sport motor" : "unavailable"}
               </h6>
-              <h6>{breakfast && "sport package included"}</h6>
+              <h6>GPS: {gps ? "included" : "unavailable"}</h6>
             </article>
           </div>
         </section>

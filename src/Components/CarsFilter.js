@@ -18,10 +18,11 @@ const CarsFilter = ({ cars }) => {
     carMake,
     price,
     minPrice,
+    maxPrice,
     minSize,
     maxSize,
-    breakfast,
-    pets
+    sportsPackage,
+    gps
   } = context;
 
   // get unique types
@@ -67,8 +68,35 @@ const CarsFilter = ({ cars }) => {
         </div>
         {/* end of capacity select type */}
         {/* cars price select type */}
-
+        <div className="form-group">
+          <label htmlFor="price">
+            price ${price}
+            <input onChange={handleChange} type="range" name="price" id="price" min={minPrice} max={maxPrice} className="form-control" />
+          </label>
+        </div>
         {/* end of cars price select type */}
+        {/* cars size select type */}
+        <div className="form-group">
+          <label htmlFor="size">fuel tank capacity</label>
+          <div className="size-inputs">
+            <input onChange={handleChange} type="number" name="minSize" id="size" value={minSize} className="size-input" />
+            <input onChange={handleChange} type="number" name="maxSize" id="size" value={maxSize} className="size-input" />
+          </div>
+        </div>
+        {/* end of cars size select type */}
+        {/* end of cars extras select type */}
+        <div className="form-group">
+          <div className="single-extra">
+            <input onChange={handleChange} type="checkbox" name="breakfast" id="breakfast" checked={sportsPackage} />
+            <label htmlFor="breakfast">Sport package</label>
+          </div>
+          <div className="single-extra">
+            <input onChange={handleChange} type="checkbox" name="pets" id="pets" checked={gps} />
+            <label htmlFor="pets">gps</label>
+          </div>
+
+        </div>
+        {/* end of cars extras select type */}
       </form>
     </section>
   )
