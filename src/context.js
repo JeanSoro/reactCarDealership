@@ -12,7 +12,7 @@ class CarProvider extends Component {
     loading: true,
     //controlled input - cars filter component
     type: 'all',
-    capacity: 1,
+    carMake: 'all',
     price: 0,
     minPrice: 0,
     minSize: 0,
@@ -69,15 +69,39 @@ class CarProvider extends Component {
 
   //form inputs - controlled input
   handleChange = e => {
-    const type = e.target.type;
+
+    const target = e.target;
+    const value = e.type === 'checkbox' ? target.checked : target.value;
     const name = e.target.name;
-    const value = e.target.value;
-    console.log(type, name, value)
+
+    this.setState({
+      [name]: value
+    }, this.filterCars)
+
+    // console.log(`type: ${type}, name: ${name}, value: ${value}`)
   }
 
   filterCars = () => {
-    console.log('hello')
-  }
+    let {
+      cars, type, carMake, minSize, maxSize, breakfast, pets
+    } = this.state
+
+    //All cars
+    let tempCars = [...cars];
+
+    // filter by type
+    if (type !== 'all') {
+      tempCars = tempCars.filter(car => car.type === type)
+    }
+
+    //Filter by manufacturers
+    if (carMake !== 'all') {
+      tempCars = tempCars.filter(car => car.carMake === carMake)
+    }
+    this.setState({
+      sortedCars: tempCars
+    })
+  };
 
 
   render() {
