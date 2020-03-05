@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import defaultBcg from '../images/car-2.jpg';
-import Hero from './HeroBackground'
+// import Hero from './HeroBackground'
 import Banner from './Banner'
 import { Link } from 'react-router-dom';
 import { CarContext } from '../context';
@@ -10,7 +10,6 @@ export default class SingleCar extends Component {
 
   constructor(props) {
     super(props)
-    // console.log(this.props)
 
     this.state = {
       slug: this.props.match.params.slug,
@@ -19,10 +18,6 @@ export default class SingleCar extends Component {
   }
 
   static contextType = CarContext;
-
-  // componentDidMount() {
-  // }
-
 
   render() {
     const { getCar } = this.context;
@@ -40,7 +35,7 @@ export default class SingleCar extends Component {
         </div>
       )
     }
-    const { name, description, manufacturer, fuelTankCapacity, price, extras, gps, sportsPackage, images } = car;
+    const { name, description, carMake, size, price, extras, gps, sportPackage, images } = car;
     const [mainImg, ...defaultImg] = images;
 
     // console.log(car)
@@ -68,12 +63,12 @@ export default class SingleCar extends Component {
             <article className="info">
               <h3>info</h3>
               <h6>price: ${price}</h6>
-              <h6>Fuel Tank: {fuelTankCapacity} L</h6>
+              <h6>Fuel Tank: {size} L</h6>
               <h6>
-                Manufacturer: {manufacturer}
+                Manufacturer: {carMake}
               </h6>
               <h6>
-                Sport Package: {sportsPackage ? "high performance sport motor" : "unavailable"}
+                Sport Package: {sportPackage ? "high performance sport motor" : "unavailable"}
               </h6>
               <h6>GPS: {gps ? "included" : "unavailable"}</h6>
             </article>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../images/logo.svg';
+import carLogo from '..//images/transport.png'
 import { FaAlignCenter } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
@@ -21,7 +22,7 @@ export default class Navbar extends Component {
         <div className="nav-center">
           <div className="nav-header">
             <Link to="/">
-              <img src={logo} alt="logo official" />
+              <img src={carLogo} alt="logo official" />
             </Link>
             <button onClick={this.navToggler} type="button" className="nav-btn">
               <FaAlignCenter className="nav-icon" />

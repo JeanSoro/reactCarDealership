@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
 
 //Fallback in case img missing
-import defaultImg from '../images/room-1.jpeg'
+import defaultImg from '../images/car-1.jpeg'
 
 const Car = ({ car }) => {
 

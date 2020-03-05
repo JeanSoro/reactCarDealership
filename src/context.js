@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 // import items from './data';
-import Client from './Contentful';
-
+// import Client from './Contentful';
+import carsData from './data'
 
 const CarContext = React.createContext();
 
@@ -20,62 +20,63 @@ class CarProvider extends Component {
     maxPrice: 0,
     minSize: 0,
     maxSize: 0,
-    breakfast: false,
-    pets: false
+    gps: false,
+    sportPackage: false
   };
 
   // Get API data
-  getAPIData = async () => {
-    try {
-      let response = await Client.getEntries({
-        content_type: "carDealershipCars",
-        order: "sys.createdAt"
-      });
+  // getAPIData = async () => {
+  //   try {
+  //     let response = await Client.getEntries({
+  //       content_type: "carDealershipCars",
+  //       order: "sys.createdAt"
+  //     });
 
-      let cars = this.formatData(response.items);
-      // return featured cars from array
-      let featuredCars = cars.filter(car => car.featured === true);
-      //calculate default maximum price for each item in Array
-      let maxPrice = Math.max(...cars.map(car => car.price));
-      //calculate default maximum size for each item in Array
-      let maxSize = Math.max(...cars.map(car => car.size));
+  //     let cars = this.formatData(response.items);
+  //     // return featured cars from array
+  //     let featuredCars = cars.filter(car => car.featured === true);
+  //     //calculate default maximum price for each item in Array
+  //     let maxPrice = Math.max(...cars.map(car => car.price));
+  //     //calculate default maximum size for each item in Array
+  //     let maxSize = Math.max(...cars.map(car => car.size));
 
-      this.setState({
-        cars,
-        featuredCars,
-        sortedCars: cars,
-        loading: false,
-        price: maxPrice,
-        maxPrice,
-        maxSize
-      });
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  //     this.setState({
+  //       cars,
+  //       featuredCars,
+  //       sortedCars: cars,
+  //       loading: false,
+  //       price: maxPrice,
+  //       maxPrice,
+  //       maxSize,
+
+  //     });
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
   // Get local data
   componentDidMount() {
-    this.getAPIData()
-    // let cars = this.formatData(items);
+    // this.getAPIData()
+    let cars = this.formatData(carsData);
 
-    // // return featured cars from array
-    // let featuredCars = cars.filter(car => car.featured === true);
+    // return featured cars from array
+    let featuredCars = cars.filter(car => car.featured === true);
 
-    // //calculate default maximum price for each item in Array
-    // let maxPrice = Math.max(...cars.map(car => car.price));
-    // //calculate default maximum size for each item in Array
-    // let maxSize = Math.max(...cars.map(car => car.size));
+    //calculate default maximum price for each item in Array
+    let maxPrice = Math.max(...cars.map(car => car.price));
+    //calculate default maximum size for each item in Array
+    let maxSize = Math.max(...cars.map(car => car.size));
 
-    // this.setState({
-    //   cars,
-    //   featuredCars,
-    //   sortedCars: cars,
-    //   loading: false,
-    //   price: maxPrice,
-    //   maxPrice,
-    //   maxSize
-    // });
+    this.setState({
+      cars,
+      featuredCars,
+      sortedCars: cars,
+      loading: false,
+      price: maxPrice,
+      maxPrice,
+      maxSize
+    });
   }
 
   // Flattening data.js Array
@@ -117,10 +118,11 @@ class CarProvider extends Component {
 
   filterCars = () => {
     let {
-      cars, price, type, carMake, minSize, maxSize, breakfast, pets
+      cars, price, type, carMake, minSize, maxSize, gps, sportPackage
     } = this.state
     //All cars
     let tempCars = [...cars];
+
 
     // -----------------------------------------------
 
@@ -142,17 +144,17 @@ class CarProvider extends Component {
 
     // ---------------------------------------------------------
 
-    // Filter by size ()
+    // Filter by size
     tempCars = tempCars.filter(car => car.size >= minSize && car.size <= maxSize)
 
     // ---------------------------------------------------------
 
-    if (breakfast) {
-      tempCars = tempCars.filter(car => car.breakfast === true)
+    if (gps) {
+      tempCars = tempCars.filter(car => car.gps === true)
     }
 
-    if (pets) {
-      tempCars = tempCars.filter(car => car.pets === true)
+    if (sportPackage) {
+      tempCars = tempCars.filter(car => car.sportPackage === true)
     }
 
     //alternate state

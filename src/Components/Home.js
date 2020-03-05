@@ -11,8 +11,7 @@ const Home = () => {
 
     <>
       <HeroBackground>
-
-        <Banner title="luxury dealership" subtitle="find your next toy here">
+        <Banner title="mdrn dealership" subtitle="find your dream car here">
           <Link to="/cars" className="btn-primary">
             Our Cars
         </Link>
@@ -20,7 +19,6 @@ const Home = () => {
       </HeroBackground>
       <Services />
       <FeaturedCars />
-
     </>
   )
 }

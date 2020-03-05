@@ -31,6 +31,7 @@ const CarsFilter = ({ cars }) => {
   // add 'all' type to array
   types = ['all', ...types];
 
+
   //JSX MARKUP for types of cars
   types = types.map((item, index) => {
     return (
@@ -39,12 +40,12 @@ const CarsFilter = ({ cars }) => {
   });
 
   //JSX MARKUP for cars capacity(car make-manufacturer)
-
   let manufacturers = uniqueValues(cars, 'carMake');
   // add 'all' type to array
   manufacturers = ['all', ...manufacturers];
-  manufacturers = manufacturers.map((item, index) => {
-    return <option key={index} value={item}>{item}</option>
+
+  manufacturers = manufacturers.map((manufacturer, index) => {
+    return (<option key={index} value={manufacturer}>{manufacturer}</option>)
   })
 
   return (
@@ -61,7 +62,7 @@ const CarsFilter = ({ cars }) => {
         {/* end of select type */}
         {/* capacity input*/}
         <div className="form-group">
-          <label htmlFor="capacity">Brand</label>
+          <label htmlFor="carMake">Brand</label>
           <select onChange={handleChange} name="carMake" id="carMake" value={carMake} className="form-control">
             {manufacturers}
           </select>
@@ -87,12 +88,12 @@ const CarsFilter = ({ cars }) => {
         {/* end of cars extras select type */}
         <div className="form-group">
           <div className="single-extra">
-            <input onChange={handleChange} type="checkbox" name="breakfast" id="breakfast" checked={sportsPackage} />
-            <label htmlFor="breakfast">Sport package</label>
+            <input onChange={handleChange} type="checkbox" name="sportPackage" id="sportPackage" checked={sportsPackage} />
+            <label htmlFor="sportPackage">Sport package</label>
           </div>
           <div className="single-extra">
-            <input onChange={handleChange} type="checkbox" name="pets" id="pets" checked={gps} />
-            <label htmlFor="pets">gps</label>
+            <input onChange={handleChange} type="checkbox" name="gps" id="gps" checked={gps} />
+            <label htmlFor="gps">gps</label>
           </div>
 
         </div>

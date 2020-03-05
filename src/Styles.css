@@ -12,7 +12,7 @@
   --offWhite: #f7f7f7;
   --mainBlack: #222;
   --mainGrey: #ececec;
-  --darkGrey: #dcebfd;
+  --darkGrey: #f1f1ec;
   --mainTransition: all 0.3s linear;
   --mainSpacing: 3px;
   --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
@@ -23,7 +23,7 @@
 body {
   padding-top: 66px;
   color: var(--mainBlack);
-  background: var(--mainWhite);
+  background: var(--offWhite);
   /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
   font-family: 'Open Sans', sans-serif;
   line-height: 1.4;
@@ -68,11 +68,11 @@ h6 {
   display: inline-block;
   text-decoration: none;
   letter-spacing: var(--mainSpacing);
-  color: var(--mainBlack);
-  background: var(--primaryColor);
+  color: var(--primaryColor);
+  /* background: var(--primaryColor); */
   padding: 0.4rem 0.9rem;
-  border: 3px solid var(--primaryColor);
-  border-radius: 50px;
+  border-bottom: 2px solid #e9bc7d;
+  /* border-radius: 50px; */
 
   transition: var(--mainTransition);
   text-transform: uppercase;
@@ -81,7 +81,7 @@ h6 {
 
 .btn-primary:hover {
   background: transparent;
-  color: var(--primaryColor);
+  color: #e9bc7d;
 }
 
 .loading {
@@ -112,7 +112,7 @@ h6 {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 0.75rem 2rem;
+  padding: 0.60rem 2rem;
   background: var(--offWhite);
   z-index: 1;
 }
@@ -120,6 +120,10 @@ h6 {
 .nav-header {
   display: flex;
   justify-content: space-between;
+}
+
+.nav-header img {
+  width: 25%
 }
 
 .nav-btn {
@@ -276,7 +280,7 @@ h6 {
 
 /* services */
 .services {
-  padding: 5rem 0;
+  padding: 2.5rem 0;
 }
 
 .services {
@@ -324,10 +328,10 @@ h6 {
 }
 
 /*end of services */
-/* featured rooms */
+/* featured cars */
 
 .featured-cars {
-  padding: 5rem 0;
+  padding: 2.5rem 0;
 }
 
 .featured-cars-center {
@@ -337,6 +341,7 @@ h6 {
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   grid-row-gap: 2rem;
   grid-column-gap: 40px;
+
 }
 
 @media screen and (min-width: 776px) {
@@ -353,8 +358,8 @@ h6 {
   }
 }
 
-/* end pf featured rooms */
-/* room */
+/* end pf featured cars */
+/* car */
 .car {
   box-shadow: var(--lightShadow);
   transition: var(--mainTransition);
@@ -366,12 +371,14 @@ h6 {
 
 .img-container {
   position: relative;
+
 }
 
 .img-container img {
   width: 100%;
   display: block;
   transition: var(--mainTransition);
+
 }
 
 .price-top {
@@ -381,7 +388,7 @@ h6 {
   background: rgba(0, 0, 0, 0.8);
   color: var(--mainWhite);
   padding: 0.3rem 0.6rem 0.5rem;
-  border-bottom-right-radius: 1rem;
+  border-bottom: 1rem;
   font-size: 0.5rem;
   text-align: center;
   transition: var(--mainTransition);
@@ -425,10 +432,11 @@ h6 {
   text-align: center;
   font-weight: 700;
   letter-spacing: var(--mainSpacing);
+
 }
 
-/* end of room  */
-/* single room*/
+/* end of car  */
+/* single car*/
 
 .single-room {
   padding: 5rem 0 0 0;
@@ -517,8 +525,8 @@ h6 {
   }
 }
 
-/* end of single room*/
-/* roomlist */
+/* end of single car*/
+/* carslist */
 .carslist {
   padding: 5rem 0;
 }
@@ -527,7 +535,7 @@ h6 {
   width: 80vw;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
   grid-row-gap: 2rem;
   grid-column-gap: 30px;
 }
@@ -545,8 +553,8 @@ h6 {
   }
 }
 
-/* end of roomlist */
-/*  rooms fitler*/
+/* end of carslist */
+/*  cars filter*/
 .filter-container {
   padding: 5rem 0;
 }
@@ -607,4 +615,4 @@ h6 {
   }
 }
 
-/* end of rooms fitler*/
+/* end of cars fitler*/

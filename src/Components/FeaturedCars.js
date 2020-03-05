@@ -24,8 +24,6 @@ export default class FeaturedCars extends Component {
         <div className="featured-cars-center">
           {loading ? <Loading /> : cars}
         </div>
-
-
       </section>
     )
   }

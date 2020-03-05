@@ -22,29 +22,7 @@ function CarsContainer({ context }) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
 export default withCarConsumer(CarsContainer)
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
